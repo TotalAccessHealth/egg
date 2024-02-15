@@ -1,20 +1,17 @@
-body {
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: sans-serif;
-    padding: 0 0 40px 0;
-}
 .egg{
     background-size: contain;
     background-repeat: no-repeat;
     width: 110px;
     height: 110px;
-    background-image: url(egg.svg);
+    background-image: url(./egg.svg);
     background-position: center;
     animation: rotate 25s linear infinite;
     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+}
+.egg canvas {
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
 }
 

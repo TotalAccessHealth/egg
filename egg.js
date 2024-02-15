@@ -18,15 +18,20 @@ const stateConfigs = {
 };
 
 // Select all canvases with the class 'egg'
-const canvases = document.querySelectorAll('.egg');
+let wrappers = document.querySelectorAll('.egg');
+wrappers.forEach(wrapper => {
+    let state = wrapper.getAttribute('data-state');
+    let canvas = document.createElement('canvas');
+    canvas.setAttribute('data-state', state);
+    wrapper.appendChild(canvas);
+});
+const canvases = document.querySelectorAll('.egg canvas');
 
 canvases.forEach(canvas => {
     const ctx = canvas.getContext('2d');
     const scale = window.devicePixelRatio;
     canvas.width = 500 * scale;
     canvas.height = 500 * scale;
-    canvas.style.width = '110px';
-    canvas.style.height = '110px';
     ctx.scale(scale, scale);
 
     const centerX = canvas.width / 2 / scale;
@@ -62,7 +67,7 @@ canvases.forEach(canvas => {
 
                 ctx.beginPath();
                 ctx.strokeStyle = color;
-                ctx.lineWidth = 4;
+                ctx.lineWidth = 8;
 
                 for (let angle = 0; angle <= 2 * Math.PI; angle += 0.01) {
                     let radius = baseRadius + amplitude * Math.sin(peaks * angle);
