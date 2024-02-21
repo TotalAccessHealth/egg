@@ -21,8 +21,10 @@ const stateConfigs = {
 let wrappers = document.querySelectorAll('.egg');
 wrappers.forEach(wrapper => {
     let state = wrapper.getAttribute('data-state');
+    let colors = wrapper.getAttribute('data-colors');
     let canvas = document.createElement('canvas');
     canvas.setAttribute('data-state', state);
+    canvas.setAttribute('data-colors', colors);
     wrapper.appendChild(canvas);
 });
 const canvases = document.querySelectorAll('.egg canvas');
@@ -55,6 +57,10 @@ canvases.forEach(canvas => {
 
     function startAnimation() {
         let state = canvas.getAttribute('data-state');
+        if (!state) {
+            state = 'ready';
+        }
+        let colors = canvas.getAttribute('data-colors');
         let linesConfig = stateConfigs[state]; // Get configuration based on the canvas state
         let time = 0; // Reset time for animation
 
