@@ -1,11 +1,11 @@
 // Define configurations for each state
 const stateConfigs = {
-    ready: [
+    init: [
         { color: '#00B67A', peaks: 2, maxAmplitude: 40, speed: 0.4 },
         { color: '#FFFFFF', peaks: 3, maxAmplitude: 35, speed: 0.3 },
         { color: '#FFD556', peaks: 4, maxAmplitude: 20, speed: 0.7 }
     ],
-    typing: [
+    type: [
         { color: '#00B67A', peaks: 2, maxAmplitude: 70, speed: 0.8 },
         { color: '#FFFFFF', peaks: 3, maxAmplitude: 55, speed: 1 },
         { color: '#FFD556', peaks: 4, maxAmplitude: 30, speed: 1.2 }
@@ -58,7 +58,7 @@ canvases.forEach(canvas => {
     function startAnimation() {
         let state = canvas.getAttribute('data-state');
         if (!state) {
-            state = 'ready';
+            state = 'init';
         }
         let colors = canvas.getAttribute('data-colors');
         let linesConfig = stateConfigs[state]; // Get configuration based on the canvas state

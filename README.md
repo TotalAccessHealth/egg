@@ -10,4 +10,4 @@ Include js and css files in your HTML file:
 ```
 ## OPTIONS
 You can customize the egg by adding the following attributes to the egg div:
-- `data-state`: The state of the egg. Possible values are `ready`, `typing`, `search`. Default value is `ready`.
+- `data-state`: The state of the egg. Possible values are `init`, `type`, `search`. Default value is `init`.
